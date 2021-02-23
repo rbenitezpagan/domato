@@ -20,7 +20,10 @@
 from __future__ import print_function
 
 import bisect
-import cgi
+try:
+    from html import escape as _escape
+except ImportError:
+    from cgi import escape as _escape
 import os
 import random
 import re
@@ -229,7 +232,7 @@ class Grammar(object):
         return ''.join(ret_list)
 
     def _generate_html_string(self, tag):
-        return cgi.escape(self._generate_string(tag), quote=True)
+        return _escape(self._generate_string(tag), quote=True)
 
     def _generate_hex(self, tag):
         """Generates a single hex digit."""
@@ -927,8 +930,7 @@ class Grammar(object):
 
     def _include_from_file(self, filename):
         try:
-            f = open(os.path.join(
-                os.path.dirname(os.path.abspath(__file__)),
+            f = open(os.path.join(self._definitions_dir,
                 filename
             ))
             content = f.read()
@@ -936,7 +938,6 @@ class Grammar(object):
         except IOError:
             print('Error reading ' + filename)
             return 1
-        self._definitions_dir = os.path.dirname(filename)
         return self.parse_from_string(content)
 
     def parse_from_string(self, grammar_str):
