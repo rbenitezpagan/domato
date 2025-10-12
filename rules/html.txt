@@ -234,6 +234,7 @@
 #<element> = <colgroupelement>
 
 <element> = <svgelement_svg>
+<element> = <mathmlelement_math>
 
 <element> = <otherelement>
 <element> = <otherelement>
@@ -971,7 +972,7 @@
 <otherelement> = <lt>bdo <bdo_attributes> <attributes><gt><innerelements><lt>/bdo<gt>
 <otherelement> = <lt>bgsound <attributes><gt><innerelements><lt>/bgsound<gt>
 <otherelement> = <lt>big <big_attributes> <attributes><gt><innerelements><lt>/big<gt>
-<otherelement> = <lt>blink <attributes><gt><innerelements><lt>/big<gt>
+<otherelement> = <lt>blink <attributes><gt><innerelements><lt>/blink<gt>
 <otherelement> = <lt>blockquote <blockquote_attributes> <attributes><gt><innerelements><lt>/blockquote<gt>
 <HTMLBRElement> = <lt>br <br_attributes> <attributes><gt><lt>/br<gt>
 <HTMLButtonElement> = <lt>button <button_attributes> <attributes><gt><innerelements><lt>/button<gt>
@@ -984,7 +985,7 @@
 <colgroupelement> = <lt>colgroup <colgroup_attributes> <attributes><gt><colelements><lt>/colgroup<gt>
 <otherelement> = <lt>command <command_attributes> <attributes><gt><innerelements><lt>/command<gt>
 <HTMLContentElement> = <lt>content <content_attributes> <attributes><gt><innerelements><lt>/content<gt>
-<HTMLDataElement> = <lt>data <data_attributes> <attributes><gt><innerelements><lt>/command<gt>
+<HTMLDataElement> = <lt>data <data_attributes> <attributes><gt><innerelements><lt>/data<gt>
 <HTMLDataListElement> = <lt>datalist <datalist_attributes> <attributes><gt><optionelements><lt>/datalist<gt>
 <ddelement> = <lt>dd <dd_attributes> <attributes><gt><innerelements><lt>/dd<gt>
 <HTMLModElement> = <lt>del <del_attributes> <attributes><gt><innerelements><lt>/del<gt>
@@ -1034,7 +1035,7 @@
 <otherelement> = <lt>mark <mark_attributes> <attributes><gt><innerelements><lt>/mark<gt>
 <HTMLMarqueeElement> = <lt>marquee <marquee_attributes> <attributes><gt><innerelements><lt>/marquee<gt>
 <HTMLMenuElement> = <lt>menu <menu_attributes> <attributes><gt><menuchildren><lt>/menu<gt>
-<menuitemelement> = <lt>menuitem <menuitem_attributes> <attributes><gt><innerelements><lt>/menu<gt>
+<menuitemelement> = <lt>menuitem <menuitem_attributes> <attributes><gt><innerelements><lt>/menuitem<gt>
 <HTMLMetaElement> = <lt>meta <meta_attributes> <attributes><gt><lt>/meta<gt>
 <HTMLMeterElement> = <lt>meter <meter_attributes> <attributes><gt><innerelements><lt>/meter<gt>
 <otherelement> = <lt>nav <nav_attributes> <attributes><gt><innerelements><lt>/nav<gt>
@@ -1065,7 +1066,7 @@
 <HTMLShadowElement> = <lt>shadow <attributes><gt><innerelements><lt>/shadow<gt>
 <otherelement> = <lt>small <small_attributes> <attributes><gt><innerelements><lt>/small<gt>
 <HTMLSourceElement> = <lt>source <source_attributes> <attributes><gt><innerelements><lt>/source<gt>
-<otherelement> = <lt>spacer <spacer_attributes> <attributes><gt><innerelements><lt>/strike<gt>
+<otherelement> = <lt>spacer <spacer_attributes> <attributes><gt><innerelements><lt>/spacer<gt>
 <HTMLSpanElement> = <lt>span <span_attributes> <attributes><gt><innerelements><lt>/span<gt>
 <otherelement> = <lt>strike <strike_attributes> <attributes><gt><innerelements><lt>/strike<gt>
 <otherelement> = <lt>strong <strong_attributes> <attributes><gt><innerelements><lt>/strong<gt>
@@ -1081,7 +1082,7 @@
 <HTMLTableSectionElement> = <lt>tfoot <tfoot_attributes> <attributes><gt><trelements><lt>/tfoot<gt>
 <HTMLTableCellElement> = <lt>th <th_attributes> <attributes><gt><innerelements><lt>/th<gt>
 <HTMLTableSectionElement> = <lt>thead <thead_attributes> <attributes><gt><trelements><lt>/thead<gt>
-<HTMLTimeElement> = <lt>time <time_attributes> <attributes><gt><innerelements><lt>/tt<gt>
+<HTMLTimeElement> = <lt>time <time_attributes> <attributes><gt><innerelements><lt>/time<gt>
 <HTMLTitleElement> = <lt>title <title_attributes> <attributes><gt><htmlsafestring min=32 max=126><lt>/title<gt>
 <HTMLTableRowElement> = <lt>tr <tr_attributes> <attributes><gt><thelements><lt>/tr<gt>
 <HTMLTrackElement> = <lt>track <track_attributes> <attributes><gt><innerelements><lt>/track<gt>
@@ -1095,4 +1096,6 @@
 
 !include svg.txt
 !include svgattrvalues.txt
+!include mathml.txt
+!include mathmlattrvalues.txt
 

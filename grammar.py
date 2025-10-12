@@ -490,6 +490,8 @@ class Grammar(object):
                     context,
                     ''
                 )
+            elif (part['tagname'] == 'any') and 'variables' in context:
+                expanded = self._get_any_var(context);
             else:
                 try:
                     expanded = self._generate(
@@ -929,16 +931,23 @@ class Grammar(object):
         return num_errors
 
     def _include_from_file(self, filename):
+        filepath = os.path.join(self._definitions_dir, filename)
         try:
-            f = open(os.path.join(self._definitions_dir,
-                filename
-            ))
+            f = open(filepath)
             content = f.read()
             f.close()
         except IOError:
             print('Error reading ' + filename)
             return 1
-        return self.parse_from_string(content)
+
+        # we temporarily change the definitions dir to make it relative to the
+        # current file being parsed so that we can safely recursively
+        # include/import other files from it.
+        saved_definitions_dir = self._definitions_dir
+        self._definitions_dir = os.path.dirname(filepath)
+        errors = self.parse_from_string(content)
+        self._definitions_dir = saved_definitions_dir
+        return errors
 
     def parse_from_string(self, grammar_str):
         """Parses grammar rules from string.
@@ -961,7 +970,7 @@ class Grammar(object):
 
         return 0
 
-    def parse_from_file(self, filename):
+    def parse_from_file(self, filename, extra=None):
         """Parses grammar from file.
 
         Opens a text file, parses it and loads the grammar rules within.
@@ -982,6 +991,10 @@ class Grammar(object):
             print('Error reading ' + filename)
             return 1
         self._definitions_dir = os.path.dirname(filename)
+        
+        if extra:
+            content = extra + content
+
         return self.parse_from_string(content)
 
     def _compute_interesting_indices(self):
@@ -1024,3 +1037,8 @@ class Grammar(object):
             for parent_type in self._inheritance[var_type]:
                 ret += self._get_variable_setters(var_name, parent_type)
         return ret
+
+    def _get_any_var(self, context):
+        var_type = random.choice(list(context['variables'].keys()))
+        return random.choice(context['variables'][var_type])
+
